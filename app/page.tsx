@@ -23,16 +23,71 @@ export default function Home() {
         </div>
 
         <nav className="flex gap-3 text-sm">
-          <a className="text-white/70 hover:text-white" href="#focus">
-            Focus
-          </a>
-          <a className="text-white/70 hover:text-white" href="#deal">
-            Deal
-          </a>
-          <a className="text-white/70 hover:text-white" href="#contact">
-            Contact
-          </a>
-        </nav>
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
+        <nav className="flex gap-3 text-sm">
+  <a className="text-white/70 hover:text-white" href="#focus">설계영역</a>
+  <a className="text-white/70 hover:text-white" href="#deal">거래구조</a>
+  <a className="text-white/70 hover:text-white" href="#contact">문의</a>
+</nav>
+
       </header>
 
       {/* HERO */}
@@ -51,12 +106,12 @@ export default function Home() {
 
           {/* CTA BUTTONS */}
           <div className="flex flex-wrap gap-3 pt-2">
-            <a
-              href="#contact"
-              className="rounded-full bg-white text-black px-5 py-2 text-sm font-semibold hover:opacity-90"
-            >
-              문의하기
-            </a>
+           <a
+             href="mailto:reum206444@gmail.com?subject=[전략%20IP%20문의]&body=회사명:%0A담당자:%0A연락처:%0A관심산업:%0A검토유형(제휴/라이선스/인수):%0A간단요약:%0A"
+             className="rounded-full bg-white text-black px-5 py-2 text-sm font-semibold hover:opacity-90"
+           >
+             문의하기
+           </a>
             <a
               href="#focus"
               className="rounded-full border border-white/20 px-5 py-2 text-sm text-white/80 hover:text-white hover:border-white/40"
@@ -69,7 +124,22 @@ export default function Home() {
 
       {/* CARDS */}
       <section id="focus" className="mx-auto max-w-5xl px-6 pb-10">
+        <div className="mb-6">
+  <h2 className="text-2xl font-semibold">핵심 설계 영역</h2>
+  <p className="mt-2 text-white/70 text-sm">
+    구조 단위로 모듈화된 설계 자산을 보유하고, 산업에 맞게 재조합합니다.
+  </p>
+</div>
         <div className="grid gap-4 md:grid-cols-3">
+          <div className="mt-8">
+  <a
+    href="/focus"
+    className="inline-flex items-center rounded-xl border border-white/20 px-4 py-2 text-sm text-white/80 hover:text-white hover:border-white/40"
+  >
+    설계 영역 상세 보기 →
+  </a>
+</div>
+
           {cards.map((c) => (
             <div
               key={c.title}
