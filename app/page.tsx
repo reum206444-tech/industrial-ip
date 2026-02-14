@@ -11,17 +11,20 @@ export default function Home() {
             INDUSTRIAL IP
           </div>
 
-          <nav className="flex gap-6 text-sm">
-            <a href="#focus" className="hover:text-white text-white/70">
-              Focus
-            </a>
-            <a href="#deal" className="hover:text-white text-white/70">
-              Deal
-            </a>
-            <a href="#contact" className="hover:text-white text-white/70">
-              Contact
-            </a>
-          </nav>
+        <nav className="flex gap-6 text-sm">
+  <Link href="/structure" className="hover:text-white text-white/70">
+    Structure
+  </Link>
+
+  <Link href="/deal" className="hover:text-white text-white/70">
+    Deal
+  </Link>
+
+  <Link href="/contact" className="hover:text-white text-white/70">
+    Contact
+  </Link>
+</nav>
+
         </div>
       </header>
 
@@ -34,19 +37,21 @@ export default function Home() {
         </h1>
 
         <div className="mt-8 flex gap-4">
-          <a
-            href="#contact"
-            className="bg-white text-black px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition"
-          >
-            문의하기
-          </a>
+          <Link
+  href="/contact"
+  className="rounded-full bg-white text-black px-5 py-2 text-sm font-semibold hover:opacity-90"
+>
+  문의하기
+</Link>
 
-          <a
-            href="#focus"
-            className="border border-white/20 px-6 py-3 rounded-full text-sm text-white/80 hover:text-white hover:border-white/40 transition"
-          >
-            설계 영역 보기
-          </a>
+
+         <Link
+  href="/structure"
+  className="rounded-full border border-white/20 px-5 py-2 text-sm text-white/80 hover:text-white hover:border-white/40"
+>
+  설계 영역 보기
+</Link>
+
         </div>
       </section>
 
