@@ -1,91 +1,127 @@
-'use client'
-
+// app/page.tsx
 import Link from 'next/link'
+import { IP_LIST } from './data/ip-list'
 
-export default function Home() {
+export default function HomePage() {
+  const featured = IP_LIST.slice(0, 6)
+
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100">
-
-      {/* NAV */}
-      <header className="fixed top-0 w-full bg-neutral-950/80 backdrop-blur border-b border-neutral-800 z-50">
-        <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
-          <div className="text-sm tracking-widest text-neutral-400">
-            ENTERPRISE STRUCTURAL IP
-          </div>
-
-          <nav className="flex gap-8 text-sm text-neutral-400">
-  <Link href="/portfolio" className="hover:text-white">Portfolio</Link>
-  <Link href="/structure" className="hover:text-white">Structure</Link>
-  <Link href="/deal" className="hover:text-white">Deal</Link>
-  <Link href="/contact" className="hover:text-white">Contact</Link>
-</nav>
-
+    <div className="space-y-14">
+      {/* Hero */}
+      <section className="rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-10">
+        <div className="text-xs text-slate-500 tracking-widest">
+          ENTERPRISE IP MARKETPLACE
         </div>
-      </header>
 
-      {/* HERO */}
-      <section className="pt-40 pb-32 mx-auto max-w-7xl px-6">
-        <div className="mt-12 flex flex-col md:flex-row gap-4">
-  <Link
-    href="/portfolio"
-    className="px-8 py-3 border border-neutral-700 hover:border-white transition"
-  >
-    IP 포트폴리오 보기
-  </Link>
+        <h1 className="mt-3 text-3xl md:text-5xl font-semibold tracking-tight text-slate-900">
+          Buy, License, or Transfer Industrial IP
+        </h1>
 
-  <Link
-    href="/contact"
-    className="px-8 py-3 text-neutral-400 hover:text-white transition"
-  >
-    기업 검토 요청
-  </Link>
-</div>
+        <p className="mt-4 text-base text-slate-600 max-w-2xl leading-relaxed">
+          Curated structural IP listings with clear deal pathways. Request NDA access, evaluate risk,
+          and move to transfer or licensing with a standardized flow.
+        </p>
 
+        <div className="mt-7 flex flex-col sm:flex-row gap-3">
+          {/* Primary */}
+          <Link
+            href="/browse"
+            className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white hover:bg-slate-800 transition"
+          >
+            Browse Listings
+          </Link>
+
+          {/* Secondary */}
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 transition"
+          >
+            Request Info (NDA)
+          </Link>
+        </div>
+
+        {/* Trust strip */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm text-slate-600">
+          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+            Standardized deal types & status
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+            Risk checks & evidence-ready materials
+          </div>
+          <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+            NDA-first disclosure for sensitive IP
+          </div>
+        </div>
       </section>
 
-      {/* CORE SERVICES */}
-      <section className="py-32 border-t border-neutral-800">
-        <div className="mx-auto max-w-7xl px-6">
+      {/* Featured */}
+      <section className="space-y-5">
+        <div className="flex items-end justify-between">
+          <div>
+            <h2 className="text-xl font-semibold text-slate-900">Featured Listings</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              A short set of active listings. New IP is added gradually.
+            </p>
+          </div>
 
-          <h2 className="text-3xl font-semibold mb-20">
-            Enterprise Solutions
-          </h2>
+          <Link href="/browse" className="text-sm text-slate-600 hover:text-slate-900">
+            View all →
+          </Link>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {featured.map((ip) => (
+            <Link
+              key={ip.slug}
+              href={`/ip/${ip.slug}`}
+              className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition"
+            >
+              <div className="text-xs text-slate-500">{ip.code}</div>
+              <div className="mt-1 text-base font-semibold text-slate-900">{ip.title}</div>
+              <div className="mt-2 text-sm text-slate-600 line-clamp-2">{ip.summary}</div>
 
-            {[
-              {
-                title: 'Structural Audit',
-                desc: '사업 구조 진단 및 리스크 분석'
-              },
-              {
-                title: 'IP Acquisition',
-                desc: '독점형 구조 IP 도입'
-              },
-              {
-                title: 'Expansion Architecture',
-                desc: '신규 매출 구조 설계'
-              }
-            ].map((item) => (
-              <div key={item.title} className="border-t border-neutral-800 pt-6">
-                <div className="text-xl font-medium">{item.title}</div>
-                <div className="mt-4 text-neutral-400">{item.desc}</div>
+              <div className="mt-4 flex gap-2 flex-wrap">
+                {ip.industries.slice(0, 3).map((t) => (
+                  <span
+                    key={t}
+                    className="text-[11px] rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
-            ))}
-
-          </div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-20 border-t border-neutral-800">
-        <div className="mx-auto max-w-7xl px-6 text-sm text-neutral-500">
-          Enterprise Access Only.
-          <br />
-          Detailed structural documentation available under NDA only.
-        </div>
-      </footer>
+      {/* Browse by Industry */}
+      <section className="rounded-3xl border border-slate-200 bg-white p-6 md:p-8">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <h3 className="text-lg font-semibold text-slate-900">Browse by Industry</h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Quick entry points for common categories.
+            </p>
+          </div>
 
-    </main>
+          <Link href="/industries" className="text-sm text-slate-600 hover:text-slate-900">
+            Explore →
+          </Link>
+        </div>
+
+        <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+          {['Platform', 'Retail', 'Finance', 'Distribution', 'Franchise', 'Data'].map((x) => (
+            <Link
+              key={x}
+              href="/browse"
+              className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 hover:bg-slate-100 transition"
+            >
+              {x}
+            </Link>
+          ))}
+        </div>
+      </section>
+    </div>
   )
 }
